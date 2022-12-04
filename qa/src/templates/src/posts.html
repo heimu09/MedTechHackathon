@@ -1,0 +1,25 @@
+{% extends 'src/post_base.html' %}
+{% block 'title' %}{{ title }}{% endblock %}
+{% block 'content' %}
+<div class="content">
+  <div class="post-list">
+    {% for post in posts %}
+    <div class="post">
+        <a href="#">
+        <img
+            class="post__img"
+            src="/media/{{ post.photo }}"
+        />
+        <div class="post__title">
+            {{ post.title }}
+        </div>
+        <div class="post__desc">
+            {{ post.description }}
+        </div>
+        </a>
+    </div>
+    <br><br><br>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

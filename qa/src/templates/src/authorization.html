@@ -1,0 +1,22 @@
+{% extends 'src/base.html' %}
+{% block 'title' %}{{ title }}{% endblock %}
+{% block 'content' %}
+<div class="content container">
+  <form method="post" class="form" action="{% url 'auth' %}">
+    {% csrf_token %}
+    <div class="form__title">Вход в систему</div>
+
+    <div class="input">
+      <label for="username" class="input__label">Имя пользователя</label>
+      <input type="text" id="username" placeholder="aldiyar" class="input__field" name="login" />
+    </div>
+
+    <div class="input">
+      <label for="password" class="input__label">Пароль</label>
+      <input type="password" id="password" placeholder="********" class="input__field" name="password" />
+    </div>
+
+    <button class="btn btn-default">Войти</button>
+  </form>
+</div>
+{% endblock %}

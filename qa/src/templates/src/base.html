@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'src/css/auth.css' %}" />
+    <link rel="stylesheet" href="{% static 'src/css/style.css' %}" />
+    <title>{% block 'title' %}{% endblock %}</title>
+</head>
+<body>
+  <div class="header">
+    <div class="container">
+      <div class="header__logo">MedTech</div>
+
+      <div class="header__nav">
+        {% if request.user.is_authenticated %}
+        <a href="{% url 'profile' %}" class="header__link btn">Профиль</a>
+        <a href="{% url 'logout' %}" class="header__link btn btn-outline">Выйти</a>
+        {% else %}
+        <a href="{% url 'auth' %}" class="header__link btn">Войти</a>
+        <a href="{% url 'registr' %}" class="header__link btn btn-outline">Регистрация</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+    {% block 'content' %}
+    {% endblock %}
+</body>
+</html>

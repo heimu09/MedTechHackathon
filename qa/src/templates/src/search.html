@@ -1,0 +1,33 @@
+{% extends 'src/search_base.html' %}
+{% block 'title' %}{{ title }}{% endblock %}
+{% block 'content' %}
+<div class="content">
+    <div class="header">
+      <div class="search">
+        <input type="search" class="search__field" placeholder="Поиск" />
+      </div>
+
+      <div class="filter">
+        <a href="#" class="filter__btn">Ближайшие</a>
+        <a href="#" class="filter__btn">Срок</a>
+      </div>
+    </div>
+
+    <div class="result">
+      <a href="#" class="user">
+        <img
+          class="user__photo"
+          src="https://images.ctfassets.net/lh3zuq09vnm2/yBDals8aU8RWtb0xLnPkI/19b391bda8f43e16e64d40b55561e5cd/How_tracking_user_behavior_on_your_website_can_improve_customer_experience.png"
+        />
+        <div class="user__name">John Doe</div>
+      </a>
+      <a href="#" class="user">
+        <img
+          class="user__photo"
+          src="https://images.ctfassets.net/lh3zuq09vnm2/yBDals8aU8RWtb0xLnPkI/19b391bda8f43e16e64d40b55561e5cd/How_tracking_user_behavior_on_your_website_can_improve_customer_experience.png"
+        />
+        <div class="user__name">John Doe</div>
+      </a>
+    </div>
+  </div>
+  {% endblock %}

@@ -1,0 +1,69 @@
+{% extends 'src/post_base.html' %}
+{% block 'title' %}{{ title }}{% endblock %}
+{% block 'content' %}
+  <div class="content">
+    <div class="title">Профиль</div>
+
+    <div class="user-info">
+      <div class="col">
+        <img class="user-info__photo" src="/media/{{ mother.photo }}" />
+      </div>
+
+      <div class="col">
+        <div class="user-info__title">{{ mother.first_name }} {{ mother.last_name }}</div>
+        <div class="user-info__subtitle">@{{ mother.user }}</div>
+        <a href="" class="user-info__edit-link">Редактировать</a>
+      </div>
+    </div>
+
+    <form class="user-table-info">
+      <div class="user-table-info__grid">
+        <div class="input">
+          <label for="password" class="input__label">Срок беременности</label>
+          <input readonly type="text" id="password" placeholder="********" class="input__field" name="password" value="{{ mother.gestation_date }} недель"/>
+        </div>
+
+        <div class="input">
+            <label for="password" class="input__label">Город</label>
+            <input readonly type="text" id="password" placeholder="********" class="input__field" name="password" value="{{ mother.city }}"/>
+        </div>
+        <div class="input">
+            <label for="password" class="input__label">Возраст</label>
+            <input readonly type="text" id="password" placeholder="********" class="input__field" name="password" value="{{ mother.birth_date }}"/>
+
+        </div>
+        <div class="input">
+            <label for="password" class="input__label">Количество детей</label>
+            <input readonly type="text" id="password" placeholder="********" class="input__field" name="password" value="{{ mother.children_count }}"/>
+
+        </div>
+        <div class="input">
+            <label for="password" class="input__label">Номер телефона</label>
+            <input readonly type="text" id="password" placeholder="********" class="input__field" name="password" value="{{ mother.phone_number }}"/>
+
+        </div>
+      </div>
+    </form>
+      <br><br><br>
+      <br><br><br>
+      <br>
+      {% for post in posts %}
+        <div class="post">
+            <a href="#">
+            <img
+                class="post__img"
+                src="/media/{{ post.photo }}"
+            />
+            <div class="post__title">
+                {{ post.title }}
+            </div>
+            <div class="post__desc">
+                {{ post.description }}
+            </div>
+            </a>
+        </div>
+        <br><br><br>
+        {% endfor %}
+
+    </div>
+{% endblock %}

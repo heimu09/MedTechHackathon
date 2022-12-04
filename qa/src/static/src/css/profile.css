@@ -1,0 +1,158 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&display=swap");
+* {
+  margin: 0;
+  font: 16px "Inter", sans-serif;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.sidebar {
+  background: #5465ff;
+  height: 100vh;
+  width: 25%;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.sidebar__logo {
+  padding: 24px;
+  color: #fff;
+  font: 28px "Space Grotesk";
+}
+.sidebar__nav {
+  padding: 0 24px;
+}
+.sidebar__link {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.sidebar__link-icon {
+  width: 32px;
+  height: 32px;
+  margin-right: 8px;
+  color: #fff;
+  border-radius: 4px;
+}
+.sidebar__link-title {
+  font: 20px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.content {
+  padding: 24px 56px 56px 56px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 75%;
+  height: 100vh;
+}
+
+.title {
+  text-align: center;
+  font-weight: 700;
+  font-size: 28px;
+  color: #1e1e1e;
+  margin-bottom: 32px;
+}
+
+.user-info {
+  display: flex;
+  margin-bottom: 16px;
+}
+.user-info__photo {
+  width: 164px;
+  height: 164px;
+  background: #000;
+  border-radius: 12px;
+  margin-right: 16px;
+}
+.user-info__title {
+  font-weight: 600;
+  font-size: 24px;
+  color: #1e1e1e;
+}
+.user-info__subtitle {
+  text-decoration: underline;
+  margin-bottom: 8px;
+  margin-top: 8px;
+  cursor: pointer;
+}
+.user-info__edit-link {
+  font-size: 14px;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.5);
+}
+.user-info__edit-link:hover {
+  text-decoration: underline;
+}
+
+.user-table-info__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 14px;
+  width: min(300px, 100%);
+}
+.input__label {
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: #1e1e1e;
+}
+.input__field {
+  padding: 8px 16px;
+  border: 2px solid #6c757d;
+  background: #fff;
+  border-radius: 4px;
+  font-weight: 500;
+  outline: none;
+  transition: 200ms ease;
+  color: #1e1e1e;
+  width: inherit;
+}
+.input__field:focus {
+  border-color: #5465ff;
+}
+
+.btn {
+  padding: 6px 10px;
+  background: #fff;
+  border-radius: 4px;
+  border: 2px solid #fff;
+  font-weight: 500;
+  color: #5465ff;
+}
+.btn-outline {
+  background: none;
+  border: 2px solid #fff;
+  color: #fff;
+}
+.btn-default {
+  width: 100%;
+  background: #5465ff;
+  color: #fff;
+  border-color: #5465ff;
+  transition: 200ms ease;
+}
+.btn-default:focus {
+  box-shadow: 0 0 0 3px rgba(84, 101, 255, 0.5019607843);
+}
+.btn-default:hover {
+  background: none;
+  color: #5465ff;
+}/*# sourceMappingURL=profile.css.map */

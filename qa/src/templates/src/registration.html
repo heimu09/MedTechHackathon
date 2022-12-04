@@ -1,0 +1,66 @@
+{% extends 'src/base.html' %}
+{% block 'title' %}{{ title }}{% endblock %}
+{% block 'content' %}
+<div class="content container">
+    <form method="post" class="form" action="{% url 'registr' %}">
+        {% csrf_token %}
+    
+      <div class="form__title">Регистрация</div>
+      <div class="input">
+        <label for="username" class="input__label">Имя пользователя</label>
+        <input type="text" id="username" placeholder="Придумайте имя" class="input__field" name="username" />
+      </div>
+
+      <div class="input">
+        <label for="password" class="input__label">Пароль</label>
+        <input type="password" id="password" placeholder="Придумайте пароль" class="input__field" name="password" />
+      </div>
+
+      <div class="input">
+        <label for="password" class="input__label">Повторите пароль</label>
+        <input type="password" id="password" placeholder="Повторите пароль" class="input__field" name="password_c" />
+      </div>
+      <div class="input">
+        <label for="first_name" class="input__label">Имя</label>
+        <input type="text" id="first_name" placeholder="Имя" class="input__field" name="first_name" />
+      </div>
+      <div class="input">
+        <label for="last_name" class="input__label">Фамилия</label>
+        <input type="text" id="last_name" placeholder="Фамилия" class="input__field" name="last_name" />
+      </div>
+      <div class="input">
+        <label for="age" class="input__label">Дата рождения</label>
+        <input type="date" id="age" placeholder="18" class="input__field" name="birth_date"/>
+      </div>
+      <div class="input">
+        <label for="weight" class="input__label">Вес</label>
+        <input type="number" id="weight" placeholder="Вес" class="input__field" name="weight" />
+      </div>
+      <div class="input">
+        <label for="height" class="input__label">Рост</label>
+        <input type="number" id="height" placeholder="Рост" class="input__field" name="height" />
+      </div>
+      <div class="input">
+        <label for="gestation_date" class="input__label">Дата беременения</label>
+        <input type="date" id="gestation_date" placeholder="Дата" class="input__field" name="gestation_date" />
+      </div>
+      <div class="input">
+        <label for="phone_number" class="input__label">Номер телефона</label>
+        <input type="number" id="phone_number" placeholder="7770736981" class="input__field" name="phone_number" />
+      </div>
+      <div class="input">
+        <label for="city" class="input__label">Город</label>
+        <input type="text" id="city" placeholder="Караганда" class="input__field" name="city" />
+      </div>
+      <div class="input">
+        <label for="city" class="input__label">Количество детей</label>
+        <input type="number" id="children_count" placeholder="1" class="input__field" name="children_count" />
+      </div>  
+      <div class="input">
+        <label for="photo" class="input__label">Фото профиля</label>
+        <input type="file" id="photo" placeholder="" class="input__field" name="photo" />
+      </div>    
+      <button class="btn btn-default">Создать аккаунт</button>
+    </form>
+  </div>
+{% endblock %}
