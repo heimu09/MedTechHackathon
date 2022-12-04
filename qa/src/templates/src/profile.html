@@ -13,6 +13,9 @@
         <div class="user-info__title">{{ mother.first_name }} {{ mother.last_name }}</div>
         <div class="user-info__subtitle">@{{ mother.user }}</div>
         <a href="" class="user-info__edit-link">Редактировать</a>
+        <br><br><br>
+        <button onclick="location.pathname = `{% url 'chat' id=mother.id %}`" class="btn">Написать</button>
+
       </div>
     </div>
 

@@ -82,7 +82,6 @@ def profile(request: HttpRequest) -> HttpResponse:
         mother.gestation_date = (date.today() - mother.gestation_date).days // 7
         mother.birth_date = (date.today() - mother.birth_date).days // 365
         posts = models.Post.objects.filter(author=mother)
-        print(posts)
 
         context = {'title': 'Профиль', 'mother': mother, 'posts': posts}
 
@@ -100,12 +99,15 @@ def posts(request: HttpRequest) -> HttpResponse:
 
         return render(request, 'src/posts.html', context=context)
 
-def chat(request: HttpRequest) -> HttpResponse:
+def chat(request: HttpRequest, id: int) -> HttpResponse:
     if not request.user.is_authenticated:
         return redirect(reverse('auth'))
     
     if request.method == 'GET':
-        context = {'title': 'Чат'}
+        mother = models.Mother.objects.get(id=id)
+        # messages_from = models.Message.objects.filter(author=models.Mother.objects.get(id=id)).filter(from_to=models.Mother.objects.get(user=request.user))
+        # messages_to = models.Message.objects.filter(author=models.Mother.objects.get(user=request.user)).filter(from_to=models.Mother.objects.get(id=id))
+        context = {'title': 'Чат', 'mother': mother}
 
         return render(request, 'src/chat.html', context=context)
 
@@ -116,6 +118,44 @@ def search(request: HttpRequest) -> HttpResponse:
     
     if request.method == 'GET':
         mothers = models.Mother.objects.filter(~Q(user=request.user)).all()
+        context = {'title': 'Поиск', 'mothers': mothers}
+
+        return render(request, 'src/search.html', context=context)
+
+def get_profile(request: HttpRequest, id: int) -> HttpResponse:
+    if not request.user.is_authenticated:
+        return redirect(reverse('auth'))
+    
+    if request.method == 'GET':
+        mother = models.Mother.objects.get(id=id)
+        mother.gestation_date = (date.today() - mother.gestation_date).days // 7
+        mother.birth_date = (date.today() - mother.birth_date).days // 365
+        posts = models.Post.objects.filter(author=mother)
+
+        context = {'title': 'Профиль', 'mother': mother, 'posts': posts}
+
+        return render(request, 'src/profile.html', context=context)
+
+
+def srok(request: HttpRequest) -> HttpResponse:
+    if not request.user.is_authenticated:
+        return redirect(reverse('auth'))
+    
+    if request.method == 'GET':
+        mother = models.Mother.objects.get(user=request.user)
+        mothers = models.Mother.objects.filter(~Q(user=request.user)).filter(gestation_date__gte=mother.gestation_date).all()
+        context = {'title': 'Поиск', 'mothers': mothers}
+
+        return render(request, 'src/search.html', context=context)
+
+
+def riad(request: HttpRequest) -> HttpResponse:
+    if not request.user.is_authenticated:
+        return redirect(reverse('auth'))
+    
+    if request.method == 'GET':
+        mother = models.Mother.objects.get(user=request.user)
+        mothers = models.Mother.objects.filter(~Q(user=request.user)).filter(city=mother.city).all()
         context = {'title': 'Поиск', 'mothers': mothers}
 
         return render(request, 'src/search.html', context=context)

@@ -8,26 +8,22 @@
       </div>
 
       <div class="filter">
-        <a href="#" class="filter__btn">Ближайшие</a>
-        <a href="#" class="filter__btn">Срок</a>
+        <a href="{% url 'riad' %}" class="filter__btn">Ближайшие</a>
+        <a href="{% url 'srok' %}" class="filter__btn">Срок</a>
       </div>
     </div>
 
     <div class="result">
-      <a href="#" class="user">
+        {% for mother in mothers %}
+      <a href="{% url 'get_profile' id=mother.id %}" class="user">
         <img
           class="user__photo"
-          src="https://images.ctfassets.net/lh3zuq09vnm2/yBDals8aU8RWtb0xLnPkI/19b391bda8f43e16e64d40b55561e5cd/How_tracking_user_behavior_on_your_website_can_improve_customer_experience.png"
+          src="/media/{{ mother.photo }}"
         />
-        <div class="user__name">John Doe</div>
+        <div class="user__name">{{ mother.first_name }} {{ mother.last_name }}</div>
+        
       </a>
-      <a href="#" class="user">
-        <img
-          class="user__photo"
-          src="https://images.ctfassets.net/lh3zuq09vnm2/yBDals8aU8RWtb0xLnPkI/19b391bda8f43e16e64d40b55561e5cd/How_tracking_user_behavior_on_your_website_can_improve_customer_experience.png"
-        />
-        <div class="user__name">John Doe</div>
-      </a>
+      {% endfor %}
     </div>
   </div>
   {% endblock %}

@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from phonenumber_field.modelfields import PhoneNumberField
 
+from datetime import datetime
 
 class Mother(models.Model):
     user = models.OneToOneField(User, verbose_name='Пользователь', on_delete=models.CASCADE)
@@ -30,3 +31,12 @@ class Post(models.Model):
     def __str__(self) -> str:
         return self.title
 
+
+# class Message(models.Model):
+#     author = models.ManyToOneRel(Mother, on_delete=models.CASCADE)
+#     from_to = models.ManyToOneRel(Mother, on_delete=models.CASCADE)
+#     text = models.TextField(verbose_name='Текст', null=False)
+#     date_send = models.DateTimeField(verbose_name='Дата отправки', default=datetime.now(), null=False)
+
+#     def __str__(self):
+#         return self.author
